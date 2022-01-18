@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,7 +21,7 @@ public class Controller {
 	private AnchorPane StartAnchorPane;
 
 	public void startGame(ActionEvent e) throws IOException {
-		AnchorPane root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+		StackPane root = FXMLLoader.load(getClass().getResource("Game.fxml"));
 		StartAnchorPane.getChildren().setAll(root);
 		System.out.println("START GAME");
 	

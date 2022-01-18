@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="GameAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="snake.GameController">
    <children>
-      <Text layoutX="275.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Snake Game" />
+      <Canvas fx:id="drawArea" height="400.0" width="600.0" />
+      <Label fx:id="startLabel" alignment="TOP_CENTER" contentDisplay="CENTER" style="-fx-font-family: Superstar;" stylesheets="@application.css" text="Press Key to start" textFill="#33658a" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <StackPane.margin>
+            <Insets top="70.0" />
+         </StackPane.margin>
+      </Label>
+      <Rectangle fx:id="overlay" arcHeight="5.0" arcWidth="5.0" fill="#000000c5" height="403.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="604.0" />
+      <VBox fx:id="pauseMenu" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="320.0" spacing="15.0" style="-fx-background-color: #33658a;" visible="false" StackPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-family: Superstar;" text="Game Paused" textAlignment="CENTER" textFill="#86bbd8">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="playAfterPauseBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#playAfterPause" style="-fx-background-color: #f6ae2d; -fx-font-family: Superstar; -fx-font-size: 14pt;" stylesheets="@application.css" text="Resume" textAlignment="CENTER" />
+            <Button fx:id="restartBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#restartGame" style="-fx-background-color: #f26419; -fx-font-family: Superstar; -fx-font-size: 14pt;" stylesheets="@application.css" text="Restart" textAlignment="CENTER" />
+            <Button fx:id="openMenuBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openMenu" style="-fx-background-color: #7eb827; -fx-font-family: Superstar; -fx-font-size: 14pt;" stylesheets="@application.css" text="Menu" textAlignment="CENTER" />
+         </children>
+      </VBox>
    </children>
-</AnchorPane>
+</StackPane>
