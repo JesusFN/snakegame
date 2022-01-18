@@ -27,7 +27,9 @@ public class GameLoop implements Runnable {
 
     @Override
     public void run() {
-        while (running && !paused) {
+        while (running) {
+			while(paused);
+			
             // Time the update and paint calls
             float time = System.currentTimeMillis();
 
@@ -36,7 +38,7 @@ public class GameLoop implements Runnable {
             keyIsPressed = false;
             
             if (!grid.getSnake().isSafe()) {
-                pause();
+                stop();
                 Painter.paintResetMessage(context);
                 break;
             }
